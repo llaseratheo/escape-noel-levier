@@ -14,7 +14,7 @@ const DEFAULT_TEAMS = {
   Oléron:{members:['Fabien','Claire','Fanny','Anais'], notes:{Fabien:'fait du badminton','Claire':'connaît tout le monde','Fanny':'gardienne de handball','Anais':'la petite du groupe'}},
   Saulnier:{members:['Marc','Marie S','Ana','Camille'], notes:{Marc:'maire de Levier',"Marie S":"s'occupe du jardin",'Ana':'en Irlande','Camille':'dans la lune'}},
   Cuenot:{members:['Bernard','Céline','Manon','Romain'], notes:{Bernard:'plombier','Céline':'prof','Manon':'physique','Romain':'aime le foot'}},
-  Baud:{members:['Max','Cyrielle','Zoé','Timothée'], notes:{Max:'parti à Blegny','Cyrielle:'+'parti à Blegny','Zoé':'gym','Timothée':'basket'}}
+  Baud:{members:['Max','Cyrielle','Zoé','Timothée'], notes:{Max:'parti à Blegny','Cyrielle':'partie à Blegny','Zoé':'gym','Timothée':'basket'}}
 };
 
 function nowIso(){ return new Date().toISOString(); }
