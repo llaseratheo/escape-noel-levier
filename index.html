@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Escape Noël : Les Copains de Levier à l'Aventure</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
+    <link rel="stylesheet" href="./public/style.css" />
   </head>
 
   <body>
@@ -14,7 +14,7 @@
 
     <!-- Logo d’intro -->
     <div id="intro">
-      <img src="/intro_logo.svg" alt="Logo Escape Noël" id="intro-logo" />
+      <img src="./public/intro_logo.svg" alt="Logo Escape Noël" id="intro-logo" />
       <h1>Escape Noël : Les Copains de Levier à l'Aventure</h1>
       <button id="startButton">🎄 Commencer l’aventure</button>
     </div>
@@ -23,15 +23,15 @@
     <div id="root"></div>
 
     <!-- Scripts -->
-    <script src="/snow.js"></script>
+    <script src="./public/snow.js"></script>
     <script>
       // Gestion du son et de l’intro
       const startButton = document.getElementById("startButton");
       const intro = document.getElementById("intro");
 
-      const introMusic = new Audio("/assets/musique_intro.wav");
-      const narration = new Audio("/assets/voice_narration.wav");
-      const jingle = new Audio("/assets/jingle.wav");
+      const introMusic = new Audio("./public/assets/musique_intro.wav");
+      const narration = new Audio("./public/assets/voice_narration.wav");
+      const jingle = new Audio("./public/assets/jingle.wav");
 
       // Lecture de la musique d'intro dès le chargement
       window.addEventListener("load", () => {
@@ -55,6 +55,6 @@
     </script>
 
     <!-- Entrée de l’application React -->
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="./src/main.jsx"></script>
   </body>
 </html>
