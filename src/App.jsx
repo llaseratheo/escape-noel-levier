@@ -138,10 +138,12 @@ function PlayScreen({teamKey, config, state, setState}){
     <div style={{marginTop:16}}>
       <h3>Équipe: {teamKey}</h3>
       <ol>
-        {[1,2,3,4,5,6].map(n=>(
+        {[1,2,3,4,5,6].map(n => (
           <li key={n} style={{margin:'8px 0'}}>
-            <strong>Étape {n}</strong> — {['L\\'étoile disparue','Message au gymnase','Cabane du Rondé','Appel au Grand Maître','Coffre LLASERA','Trésor final'][n-1]}
-            <div style={{fontSize:12, color:'#666'}}>{team.completed.find(c=>c.step===n)?'fait':'en attente'}</div>
+            <strong>Étape {n}</strong> — {["L'étoile disparue","Message au gymnase","Cabane du Rondé","Appel au Grand Maître","Coffre LLASERA","Trésor final"][n-1]}
+            <div style={{fontSize:12, color:'#666'}}>
+              {team.completed.find(c => c.step === n) ? 'fait' : 'en attente'}
+            </div>
           </li>
         ))}
       </ol>
