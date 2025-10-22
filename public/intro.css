@@ -1,7 +1,0 @@
-
-.intro-wrap{ width:100vw; height:100vh; display:flex; align-items:center; justify-content:center; background-size:cover; background-position:center; position:relative; overflow:hidden; }
-.intro-overlay{ position:absolute; inset:0; background:linear-gradient(rgba(4,6,10,0.6), rgba(4,6,10,0.2)); }
-.intro-box{ z-index:5; text-align:center; color:#fff; }
-.intro-title{ font-size:36px; color:#D4AF37; font-weight:800; text-shadow:0 6px 18px rgba(0,0,0,0.6); }
-.intro-sub{ margin-top:10px; color:#fff; opacity:0.9; }
-.skip{ position:absolute; right:16px; bottom:16px; padding:8px 10px; background:rgba(255,255,255,0.9); color:#111; border-radius:8px; cursor:pointer; }
