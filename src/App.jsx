@@ -10,7 +10,7 @@ import React, { useEffect, useState } from 'react';
 const DEFAULT_TEAMS = {
   LLASERA:{members:['Florent','Marie D','Emma','Théo'], notes:{Florent:'adore la randonnée', 'Marie D':'très attentionnée', Emma:'blessée au genou', Théo:'grand maître du jeu'}},
   Marlot:{members:['Marie M','Olivier','Clémentine','Antonin','Félicien'], notes:{'Olivier':'prof de judo','Marie M':'présidente du judo','Clémentine':'dort tout le temps','Antonin':'déra...pe','Félicien':'dans sa cabane'}},
-  Pecot:{members:['Norbert','Marie-Luce','Léon','Gaspard'], notes:{Norbert:'aime les legos','Marie-Luce':'fait des gâteaux','Léon':'menuisier','Gaspard':'s\\'énerve vite'}},
+  Pecot:{members:['Norbert','Marie-Luce','Léon','Gaspard'], notes:{Norbert:'aime les legos','Marie-Luce':'fait des gâteaux','Léon':'menuisier',"Gaspard":"s'énerve vite"}},
   Oléron:{members:['Fabien','Claire','Fanny','Anais'], notes:{Fabien:'fait du badminton','Claire':'connaît tout le monde','Fanny':'gardienne de handball','Anais':'la petite du groupe'}},
   Saulnier:{members:['Marc','Marie S','Ana','Camille'], notes:{Marc:'maire de Levier','Marie S':'s\\'occupe du jardin','Ana':'en Irlande','Camille':'dans la lune'}},
   Cuenot:{members:['Bernard','Céline','Manon','Romain'], notes:{Bernard:'plombier','Céline':'prof','Manon':'physique','Romain':'aime le foot'}},
