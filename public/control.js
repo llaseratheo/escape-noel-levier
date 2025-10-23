@@ -1,1 +1,48 @@
-document.addEventListener('DOMContentLoaded', function(){ const ctrl=document.createElement('div'); ctrl.style.position='fixed'; ctrl.style.left='12px'; ctrl.style.bottom='12px'; ctrl.style.zIndex=10002; ctrl.style.display='flex'; ctrl.style.gap='8px'; const btnMusic=document.createElement('button'); btnMusic.textContent='🎵'; btnMusic.className='eg-btn off'; const btnNarr=document.createElement('button'); btnNarr.textContent='🗣️'; btnNarr.className='eg-btn off'; ctrl.appendChild(btnMusic); ctrl.appendChild(btnNarr); document.body.appendChild(ctrl); let music, narration; btnMusic.onclick=()=>{ if(!music) return; if(music.paused){ music.play(); btnMusic.classList.remove('off'); } else { music.pause(); btnMusic.classList.add('off'); } }; btnNarr.onclick=()=>{ if(!narration) return; if(narration.paused){ narration.play(); btnNarr.classList.remove('off'); } else { narration.pause(); btnNarr.classList.add('off'); } }; window.__eg_setAudio = (m, n)=>{ music=m; narration=n; if(!music.paused) btnMusic.classList.remove('off'); if(!narration.paused) btnNarr.classList.remove('off'); }; });
+// 🎄 Gestion du son et des interactions d'intro
+
+document.addEventListener("DOMContentLoaded", () => {
+  const startButton = document.getElementById("startButton");
+  const intro = document.getElementById("intro");
+
+  // 🔊 Sons et musiques
+  const introMusic = new Audio("/assets/musique_intro.wav");
+  const narration = new Audio("/assets/voice_narration.wav");
+  const jingle = new Audio("/assets/jingle.wav");
+  const backgroundMusic = new Audio("/assets/music_enigmes.wav");
+
+  // Réglages audio
+  introMusic.volume = 0.5;
+  narration.volume = 0.9;
+  jingle.volume = 0.8;
+  backgroundMusic.volume = 0.4;
+  backgroundMusic.loop = true;
+
+  // Lancement automatique de la musique d’intro
+  introMusic.play().catch(() => {
+    console.log("Lecture automatique bloquée — clic requis.");
+  });
+
+  // 🔘 Interaction : clic sur “Commencer”
+  startButton.addEventListener("click", () => {
+    // Arrêt de la musique d’intro
+    introMusic.pause();
+    introMusic.currentTime = 0;
+
+    // Jingle + narration
+    jingle.play();
+    narration.play();
+
+    // Transition visuelle (fade)
+    intro.classList.add("fade-out");
+    setTimeout(() => {
+      intro.style.display = "none";
+      // Lancement musique de fond
+      backgroundMusic.play();
+    }, 2000);
+  });
+
+  // Sécurité : si narration finie → lancer musique
+  narration.addEventListener("ended", () => {
+    backgroundMusic.play();
+  });
+});
