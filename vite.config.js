@@ -1,12 +1,20 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { resolve } from "path";
 
-// Configuration Vite
 export default defineConfig({
   plugins: [react()],
-  publicDir: 'public',
-  root: '.', // indique que index.html est à la racine
+  root: ".", // index.html à la racine
+  publicDir: "public",
   build: {
-    outDir: 'dist',
+    outDir: "dist",
+    emptyOutDir: true,
+    rollupOptions: {
+      input: resolve(__dirname, "index.html"),
+    },
   },
-})
+  server: {
+    port: 5173,
+    open: true,
+  },
+});
