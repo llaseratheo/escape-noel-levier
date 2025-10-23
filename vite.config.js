@@ -1,4 +1,12 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-export default defineConfig({ plugins:[react()], root:'.', publicDir:'public', base:'./', build:{outDir:'dist'} })
+// Configuration Vite
+export default defineConfig({
+  plugins: [react()],
+  publicDir: 'public',
+  root: '.', // indique que index.html est à la racine
+  build: {
+    outDir: 'dist',
+  },
+})
