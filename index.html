@@ -9,64 +9,22 @@
   </head>
 
   <body>
-    <!-- Conteneur du fond enneigé -->
+    <!-- ❄️ Conteneur pour l’effet de neige -->
     <div id="snow-container"></div>
 
-    <!-- Section d'intro -->
+    <!-- 🎄 Écran d’intro -->
     <div id="intro">
       <img src="/intro_logo.svg" alt="Logo Escape Noël" id="intro-logo" />
       <h1>Escape Noël : Les Copains de Levier à l'Aventure</h1>
-      <p id="intro-text">
-        Les flocons tombent, le mystère s’éveille...  
-        Es-tu prêt à embarquer pour l’aventure des Copains de Levier ?
-      </p>
-      <button id="startButton">🎄 Commencer l’aventure</button>
+      <button id="startButton">🎅 Commencer l’aventure</button>
     </div>
 
-    <!-- Racine React -->
+    <!-- 🌟 Conteneur React -->
     <div id="root"></div>
 
-    <!-- Scripts -->
-    <script>
-      // --- Sons et musiques ---
-      const introMusic = new Audio("/assets/musique_intro.wav");
-      const narration = new Audio("/assets/voice_narration.wav");
-      const jingle = new Audio("/assets/jingle.wav");
-
-      introMusic.volume = 0.5;
-      narration.volume = 0.9;
-      jingle.volume = 0.8;
-
-      // Lecture automatique de la musique d'intro
-      window.addEventListener("load", () => {
-        introMusic.loop = true;
-        introMusic.play().catch(() => {
-          console.log("En attente d'une interaction utilisateur pour démarrer la musique.");
-        });
-      });
-
-      // --- Lancement du jeu ---
-      const startButton = document.getElementById("startButton");
-      const intro = document.getElementById("intro");
-
-      startButton.addEventListener("click", () => {
-        // Transition sonore
-        introMusic.pause();
-        jingle.play();
-        narration.play();
-
-        // Animation de fondu
-        intro.classList.add("fade-out");
-        setTimeout(() => {
-          intro.style.display = "none";
-        }, 2000);
-      });
-    </script>
-
-    <!-- Script neige -->
+    <!-- 📜 Scripts -->
     <script src="/snow.js"></script>
-
-    <!-- App React -->
+    <script src="/control.js"></script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
