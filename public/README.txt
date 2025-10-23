@@ -1,1 +1,0 @@
-Place this 'public' folder at your repo root and commit. Replace assets/voice_narration.wav with a real recorded narration for best effect. Then redeploy on Vercel, clearing cache.
