@@ -1,1 +1,111 @@
-:root{--gold:#D4AF37;--warm:#8b0000}body{margin:0;font-family:Inter,system-ui, -apple-system, 'Segoe UI', Roboto, Arial;background:linear-gradient(#071226,#083040);color:#fff;overflow:hidden}#bgLayer{position:fixed;inset:0;background-image:url('./assets/background.jpg');background-size:cover;background-position:center;filter:brightness(0.9)}#introWrap{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:9999} .introBox{background:rgba(0,0,0,0.5);padding:28px;border-radius:12px;text-align:center;border:2px solid rgba(212,175,55,0.08)}.introTitle{font-size:28px;color:var(--gold);margin:0}.introSub{color:#fff;opacity:0.9;margin-top:8px}#startButton{margin-top:14px;padding:10px 18px;background:var(--warm);color:#fff;border:none;border-radius:10px;cursor:pointer} .eg-btn{padding:8px;border-radius:8px;border:none;background:rgba(255,255,255,0.06);color:#fff;cursor:pointer}.eg-btn.off{opacity:0.45}#root{position:relative;z-index:1;padding:24px}
+/* ==== Fond général ==== */
+body {
+  margin: 0;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  background: url("/assets/background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* ==== Conteneur neige ==== */
+#snow-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* ==== Intro ==== */
+#intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 15, 30, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 5;
+  color: #fff;
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+#intro img {
+  width: 200px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 15px rgba(255, 220, 150, 0.8));
+}
+
+#intro h1 {
+  font-size: 1.8rem;
+  margin: 10px 0;
+  color: #ffe9b0;
+  text-shadow: 0 0 10px rgba(255, 150, 100, 0.6);
+}
+
+#intro p {
+  font-size: 1rem;
+  color: #ddd;
+  margin-bottom: 20px;
+  max-width: 400px;
+  line-height: 1.5;
+}
+
+#startButton {
+  background: linear-gradient(45deg, #b60000, #ff3b3b);
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  box-shadow: 0 0 12px rgba(255, 50, 50, 0.6);
+}
+
+#startButton:hover {
+  background: linear-gradient(45deg, #d00000, #ff7070);
+  transform: scale(1.05);
+}
+
+/* ==== Animation de sortie ==== */
+.fade-out {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+/* ==== App React ==== */
+#root {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==== Flocons ==== */
+.snowflake {
+  position: absolute;
+  top: -10px;
+  color: white;
+  font-size: 1em;
+  opacity: 0.8;
+  pointer-events: none;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
