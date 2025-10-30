@@ -3,54 +3,58 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Escape Noël : Les Copains de Levier à l'Aventure</title>
-    <link rel="icon" type="image/svg+xml" href="/public/favicon.svg" />
-    <link rel="stylesheet" href="/public/style.css" />
+    <title>Escape Game Noël 🎄 – Les Copains de Levier</title>
+
+    <!-- Icône de l’onglet -->
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+
+    <!-- Couleur du thème mobile -->
+    <meta name="theme-color" content="#b30000" />
+
+    <!-- Description SEO -->
+    <meta
+      name="description"
+      content="Participez à l'Escape Game de Noël des Copains de Levier 🎅. Résolvez les énigmes et découvrez le trésor caché !"
+    />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+      body {
+        margin: 0;
+        font-family: "Mountains of Christmas", cursive;
+        background-color: #fff8f8;
+        color: #b30000;
+        overflow-x: hidden;
+      }
+
+      button {
+        transition: all 0.3s ease;
+      }
+
+      button:hover {
+        transform: scale(1.05);
+        opacity: 0.9;
+      }
+
+      /* Effet neige douce si le canvas n’est pas encore chargé */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("/assets/snow_fallback.gif") repeat;
+        opacity: 0.2;
+        z-index: -2;
+        pointer-events: none;
+      }
+    </style>
   </head>
-
   <body>
-    <!-- Fond enneigé -->
-    <div id="snow-container"></div>
-
-    <!-- Intro -->
-    <div id="intro">
-      <img src="/public/intro_logo.svg" alt="Logo Escape Noël" id="intro-logo" />
-      <h1>Escape Noël : Les Copains de Levier à l'Aventure</h1>
-      <button id="startButton">🎄 Commencer l’aventure</button>
-    </div>
-
-    <!-- Conteneur React -->
     <div id="root"></div>
-
-    <!-- Scripts -->
-    <script src="/public/snow.js"></script>
-    <script src="/public/control.js"></script>
-
-    <script>
-      const startButton = document.getElementById("startButton");
-      const intro = document.getElementById("intro");
-
-      const introMusic = new Audio("/public/assets/musique_intro.wav");
-      const narration = new Audio("/public/assets/voice_narration.wav");
-      const jingle = new Audio("/public/assets/jingle.wav");
-
-      // Lecture automatique musique intro
-      window.addEventListener("load", () => {
-        introMusic.volume = 0.5;
-        introMusic.play().catch(() => {});
-      });
-
-      startButton.addEventListener("click", () => {
-        introMusic.pause();
-        jingle.play();
-        narration.play();
-        intro.classList.add("fade-out");
-        setTimeout(() => {
-          intro.style.display = "none";
-        }, 2500);
-      });
-    </script>
-
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
