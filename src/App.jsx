@@ -9,21 +9,24 @@ export default function App() {
       <p>Choisissez votre équipe :</p>
 
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-        {["LLASERA", "Marlot", "Pecot", "Oléron", "Saulnier", "Cuenot", "Baud"].map((t) => (
-          <button
-            key={t}
-            onClick={() => setTeam(t)}
-            style={{
-              padding: 8,
-              borderRadius: 8,
-              background: team === t ? "#c0392b" : "#eee",
-              color: team === t ? "white" : "black",
-              cursor: "pointer",
-            }}
-          >
-            {t}
-          </button>
-        ))}
+        {["LLASERA", "Marlot", "Pecot", "Oléron", "Saulnier", "Cuenot", "Baud"].map(
+          (t) => (
+            <button
+              key={t}
+              onClick={() => setTeam(t)}
+              style={{
+                padding: 8,
+                borderRadius: 8,
+                backgroundColor: "#b30000",
+                color: "white",
+                border: "none",
+                cursor: "pointer",
+              }}
+            >
+              {t}
+            </button>
+          )
+        )}
       </div>
 
       {team && (
@@ -33,6 +36,7 @@ export default function App() {
       )}
 
       <hr />
+
       <p style={{ opacity: 0.8 }}>
         Ici, tu peux intégrer la logique d'énigmes personnalisées.
       </p>
