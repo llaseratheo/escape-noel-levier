@@ -3,58 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Escape Game Noël 🎄 – Les Copains de Levier</title>
-
-    <!-- Icône de l’onglet -->
-    <link rel="icon" type="image/png" href="/assets/favicon.png" />
-
-    <!-- Couleur du thème mobile -->
-    <meta name="theme-color" content="#b30000" />
-
-    <!-- Description SEO -->
-    <meta
-      name="description"
-      content="Participez à l'Escape Game de Noël des Copains de Levier 🎅. Résolvez les énigmes et découvrez le trésor caché !"
-    />
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&display=swap" rel="stylesheet">
-
-    <style>
-      body {
-        margin: 0;
-        font-family: "Mountains of Christmas", cursive;
-        background-color: #fff8f8;
-        color: #b30000;
-        overflow-x: hidden;
-      }
-
-      button {
-        transition: all 0.3s ease;
-      }
-
-      button:hover {
-        transform: scale(1.05);
-        opacity: 0.9;
-      }
-
-      /* Effet neige douce si le canvas n’est pas encore chargé */
-      body::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url("/assets/snow_fallback.gif") repeat;
-        opacity: 0.2;
-        z-index: -2;
-        pointer-events: none;
-      }
-    </style>
+    <title>Escape Noël : Les Copains de Levier à l'Aventure</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/style.css" />
   </head>
-  <body>
+
+  <body style="background: url('/background.jpg') no-repeat center center fixed; background-size: cover;">
+    <!-- Conteneur de fond enneigé -->
+    <div id="snow-container"></div>
+
+    <!-- Écran d’intro -->
+    <div id="intro">
+      <img src="/intro_logo.svg" alt="Logo Escape Noël" id="intro-logo" />
+      <h1>Escape Noël : Les Copains de Levier à l'Aventure</h1>
+      <button id="startButton">🎄 Commencer l’aventure</button>
+    </div>
+
+    <!-- Application React -->
     <div id="root"></div>
+
+    <!-- Scripts -->
+    <script src="/snow.js"></script>
+    <script src="/control.js"></script>
+
+    <script>
+      const startButton = document.getElementById("startButton");
+      const intro = document.getElementById("intro");
+
+      const introMusic = new Audio("/assets/musique_intro.wav");
+      const narration = new Audio("/assets/voice_narration.wav");
+      const jingle = new Audio("/assets/jingle.wav");
+
+      // Lancer la musique d'intro au chargement
+      window.addEventListener("load", () => {
+        introMusic.volume = 0.4;
+        introMusic.loop = true;
+        introMusic.play().catch(() => {
+          // Attente du clic utilisateur
+        });
+      });
+
+      // Quand on clique sur "Commencer"
+      startButton.addEventListener("click", () => {
+        introMusic.pause();
+        jingle.play();
+        narration.play();
+
+        // Transition vers le jeu
+        intro.classList.add("fade-out");
+        setTimeout(() => {
+          intro.style.display = "none";
+        }, 2000);
+      });
+    </script>
+
+    <!-- Entrée React -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
